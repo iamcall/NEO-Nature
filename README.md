@@ -1,1 +1,42 @@
-# NEO-Nature
+# NEO–Nature Project Report
+
+### STAT 386
+###
+---
+
+Overview
+
+This project explores potential relationships between Near-Earth Object (NEO) activity and natural disaster events on Earth. Using NASA’s asteroid API feed and their available disaster records, we constructed a reproducible pipeline to gather data, merge datasets, and perform exploratory analysis.
+
+The objective is to understand patterns in timing, frequency, and characteristics of asteroid approaches relative to major natural disasters. This analysis is exploratory in nature and does not assume causation.
+
+---
+
+Data Sources
+
+Dataset                | Source                                  | Format | Access
+---------------------- | --------------------------------------- |  ----- | ---------------------------
+Near-Earth Objects     | NASA Asteroid API (NeoWs)               | JSON   | API request
+Natural Disasters      | NASA Natural Disaster Dataset           | CSV    | API request
+
+
+NASA API Portal: https://api.nasa.gov/
+
+Asteroid API Documentation: https://api.nasa.gov/neo/
+
+---
+
+Research Questions
+
+1.) Do increases in asteroid fly-bys coincide with increases in natural disaster frequency?
+
+2.) What types of natural disasters (if any) are impacted by NEOs?
+
+3.) Do NEOs labelled "___" by NASA have a greater impact on natural disasters on earth?
+
+--- 
+
+Authors:
+
+Aubrey Coons-Call, Lindsay McNary
+Brigham Young University — STAT 386
