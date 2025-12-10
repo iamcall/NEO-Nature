@@ -16,7 +16,7 @@ Data Sources
 
 Dataset                | Source                                  | Format | Access
 ---------------------- | --------------------------------------- |  ----- | ---------------------------
-Near-Earth Objects     | NASA Asteroid API (NeoWs)               | JSON   | API request
+Near-Earth Objects     | NASA Asteroid API (NeoWs)               | CSV    | API request
 Natural Disasters      | NASA Natural Disaster Dataset           | CSV    | API request
 
 
