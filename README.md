@@ -32,7 +32,7 @@ Research Questions
 
 2.) What types of natural disasters (if any) are impacted by NEOs?
 
-3.) Do NEOs labelled "___" by NASA have a greater impact on natural disasters on earth?
+3.) Do NEOs labelled "hazardous" by NASA have a greater impact on natural disasters on earth?
 
 --- 
 
