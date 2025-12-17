@@ -9,3 +9,5 @@ src/neo_nature.egg-info/SOURCES.txt
 src/neo_nature.egg-info/dependency_links.txt
 src/neo_nature.egg-info/requires.txt
 src/neo_nature.egg-info/top_level.txt
+tests/test_analysis.py
+tests/test_cleaning.py
