@@ -1,0 +1,107 @@
+[
+  {
+    "objectID": "Tutorial.html",
+    "href": "Tutorial.html",
+    "title": "Tutorial",
+    "section": "",
+    "text": "# Ensure local package imports work without requiring installation.\nimport sys\nfrom pathlib import Path\n\nsys.path.insert(0, str(Path.cwd() / \"src\"))"
+  },
+  {
+    "objectID": "Tutorial.html#overview",
+    "href": "Tutorial.html#overview",
+    "title": "Tutorial",
+    "section": "Overview",
+    "text": "Overview\nThis tutorial demonstrates how to use the NEO_Nature package to reproduce the core workflow of the project:\n\nCleaning and merging Near-Earth Object (NEO) and natural disaster data\n\nRunning exploratory analysis to examine potential relationships between asteroid characteristics and disaster occurrence\n\nAll analysis in this project is exploratory and does not claim causation."
+  },
+  {
+    "objectID": "Tutorial.html#setup",
+    "href": "Tutorial.html#setup",
+    "title": "Tutorial",
+    "section": "Setup",
+    "text": "Setup\nBefore running this tutorial, make sure:\n\nThe repository has been cloned locally\nRequired packages (such as pandas) are installed\nThe data/ directory contains:\n\nneo_data.csv\ndisaster_data.csv"
+  },
+  {
+    "objectID": "Tutorial.html#running-the-cleaning-pipeline",
+    "href": "Tutorial.html#running-the-cleaning-pipeline",
+    "title": "Tutorial",
+    "section": "Running the Cleaning Pipeline",
+    "text": "Running the Cleaning Pipeline\nThe cleaning pipeline loads the raw datasets, merges them by date, and saves a cleaned dataset for analysis.\n\nfrom NEO_Nature.cleaning import run_cleaning_pipeline\n\nrun_cleaning_pipeline()\n\nThis step: - Reads the raw NEO and disaster datasets from data/ - Merges them on the date column - Saves the cleaned dataset to data/merged_neo_disaster_data.csv\nYou only need to run this step once unless the raw data changes."
+  },
+  {
+    "objectID": "Tutorial.html#running-the-analysis-pipeline",
+    "href": "Tutorial.html#running-the-analysis-pipeline",
+    "title": "Tutorial",
+    "section": "Running the Analysis Pipeline",
+    "text": "Running the Analysis Pipeline\nAfter the merged dataset has been created, you can run the analysis pipeline.\n\nfrom NEO_Nature.analysis import run_analysis_pipeline\n\nrun_analysis_pipeline()\n\nThis step: - Loads the merged dataset - Aggregates asteroid size and disaster counts by date - Computes correlations for: - Same-day asteroid size vs. disaster count - One-day lagged disaster counts - Hazardous asteroids only - Prints summary statistics and a conservative conclusion\nThe printed results correspond directly to the findings discussed in the final report."
+  },
+  {
+    "objectID": "Tutorial.html#expected-output",
+    "href": "Tutorial.html#expected-output",
+    "title": "Tutorial",
+    "section": "Expected Output",
+    "text": "Expected Output\nWhen run successfully, the analysis pipeline will print:\n\nCorrelation values for each comparison\nA short, plain-language conclusion indicating whether meaningful relationships were detected\n\nThese results are intentionally summarized to support reproducibility and clarity."
+  },
+  {
+    "objectID": "Tutorial.html#notes",
+    "href": "Tutorial.html#notes",
+    "title": "Tutorial",
+    "section": "Notes",
+    "text": "Notes\n\nThis tutorial prioritizes reproducibility over visualization\nAll exploratory plots and deeper investigation were conducted in NEO_eda.ipynb\nThe package structure allows the full workflow to be rerun without interacting with notebooks"
+  },
+  {
+    "objectID": "Tutorial.html#conclusion",
+    "href": "Tutorial.html#conclusion",
+    "title": "Tutorial",
+    "section": "Conclusion",
+    "text": "Conclusion\nBy running the cleaning and analysis pipelines shown above, users can fully reproduce the core results of the NEO-Nature project from raw data to final conclusions."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "NEO-Nature",
+    "section": "",
+    "text": "NEO-Nature is an exploratory data project examining whether Near-Earth Object (NEO) characteristics show any measurable relationship with the frequency of natural disaster events on Earth.\nThis site contains:\n\nA reproducible Tutorial that runs the data cleaning and analysis pipelines\nDocumentation describing the package structure and key functions"
+  },
+  {
+    "objectID": "index.html#overview",
+    "href": "index.html#overview",
+    "title": "NEO-Nature",
+    "section": "",
+    "text": "NEO-Nature is an exploratory data project examining whether Near-Earth Object (NEO) characteristics show any measurable relationship with the frequency of natural disaster events on Earth.\nThis site contains:\n\nA reproducible Tutorial that runs the data cleaning and analysis pipelines\nDocumentation describing the package structure and key functions"
+  },
+  {
+    "objectID": "index.html#repository-layout",
+    "href": "index.html#repository-layout",
+    "title": "NEO-Nature",
+    "section": "Repository Layout",
+    "text": "Repository Layout\n\nsrc/NEO_Nature/: Python package source\ndata/: input datasets and merged output\nnotebooks/: exploratory work"
+  },
+  {
+    "objectID": "Documentation.html",
+    "href": "Documentation.html",
+    "title": "Documentation",
+    "section": "",
+    "text": "# Ensure local package imports work without requiring installation.\nimport sys\nfrom pathlib import Path\n\nsys.path.insert(0, str(Path.cwd() / \"src\"))"
+  },
+  {
+    "objectID": "Documentation.html#package",
+    "href": "Documentation.html#package",
+    "title": "Documentation",
+    "section": "Package",
+    "text": "Package\nThe Python package lives in src/NEO_Nature/."
+  },
+  {
+    "objectID": "Documentation.html#core-functions",
+    "href": "Documentation.html#core-functions",
+    "title": "Documentation",
+    "section": "Core Functions",
+    "text": "Core Functions\n\nCleaning\nrun_cleaning_pipeline() loads the raw CSVs, merges them by date, and writes the merged dataset.\n\nfrom NEO_Nature.cleaning import run_cleaning_pipeline\n\n# run_cleaning_pipeline()\n\nInputs:\n\ndata/neo_data.csv\ndata/disaster_data.csv\n\nOutput:\n\ndata/merged_neo_disaster_data.csv\n\n\n\nAnalysis\nrun_analysis_pipeline() reads the merged dataset and prints summary correlations used in the written report.\n\nfrom NEO_Nature.analysis import run_analysis_pipeline\n\n# run_analysis_pipeline()"
+  },
+  {
+    "objectID": "Documentation.html#notes",
+    "href": "Documentation.html#notes",
+    "title": "Documentation",
+    "section": "Notes",
+    "text": "Notes\n\nThe tutorial is designed to be reproducible without opening notebooks.\nExploratory work and plots live in notebooks/NEO_eda.ipynb."
+  }
+]

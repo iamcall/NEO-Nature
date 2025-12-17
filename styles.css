@@ -1,0 +1,15 @@
+:root {
+  --neo-accent: #2a7f62;
+}
+
+a {
+  color: var(--neo-accent);
+}
+
+.navbar-brand {
+  font-weight: 600;
+}
+
+.quarto-title-block .title {
+  letter-spacing: 0.2px;
+}

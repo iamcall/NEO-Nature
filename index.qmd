@@ -1,0 +1,19 @@
+---
+title: "NEO-Nature"
+author: "Lindsay McNary, Aubrey Coons-Call"
+---
+
+## Overview
+
+NEO-Nature is an exploratory data project examining whether Near-Earth Object (NEO) characteristics show any measurable relationship with the frequency of natural disaster events on Earth.
+
+This site contains:
+
+- A reproducible `Tutorial` that runs the data cleaning and analysis pipelines
+- `Documentation` describing the package structure and key functions
+
+## Repository Layout
+
+- `src/NEO_Nature/`: Python package source
+- `data/`: input datasets and merged output
+- `notebooks/`: exploratory work

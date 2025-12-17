@@ -1,0 +1,28 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - index.qmd
+    - Tutorial.qmd
+    - Documentation.qmd
+
+website:
+  title: "NEO-Nature"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: Tutorial.qmd
+        text: Tutorial
+      - href: Documentation.qmd
+        text: Documentation
+  search: true
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+execute:
+  freeze: auto

@@ -1,0 +1,12 @@
+{
+  "hash": "1a400e86338dec7dc3f459cdc9e6ee12",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"Documentation\"\n---\n\n::: {#ed65d457 .cell execution_count=1}\n``` {.python .cell-code}\n# Ensure local package imports work without requiring installation.\nimport sys\nfrom pathlib import Path\n\nsys.path.insert(0, str(Path.cwd() / \"src\"))\n```\n:::\n\n\n## Package\n\nThe Python package lives in `src/NEO_Nature/`.\n\n## Core Functions\n\n### Cleaning\n\n`run_cleaning_pipeline()` loads the raw CSVs, merges them by `date`, and writes the merged dataset.\n\n::: {#47de596a .cell execution_count=2}\n``` {.python .cell-code}\nfrom NEO_Nature.cleaning import run_cleaning_pipeline\n\n# run_cleaning_pipeline()\n```\n:::\n\n\nInputs:\n\n- `data/neo_data.csv`\n- `data/disaster_data.csv`\n\nOutput:\n\n- `data/merged_neo_disaster_data.csv`\n\n### Analysis\n\n`run_analysis_pipeline()` reads the merged dataset and prints summary correlations used in the written report.\n\n::: {#55515566 .cell execution_count=3}\n``` {.python .cell-code}\nfrom NEO_Nature.analysis import run_analysis_pipeline\n\n# run_analysis_pipeline()\n```\n:::\n\n\n## Notes\n\n- The tutorial is designed to be reproducible without opening notebooks.\n- Exploratory work and plots live in `notebooks/NEO_eda.ipynb`.\n\n",
+    "supporting": [
+      "Documentation_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

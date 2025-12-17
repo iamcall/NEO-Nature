@@ -1,7 +1,15 @@
 ---
-title: "Getting Started"
+title: "Tutorial"
 jupyter: python3
 ---
+
+```{python, echo=false}
+# Ensure local package imports work without requiring installation.
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path.cwd() / "src"))
+```
 
 ## Overview
 
@@ -31,6 +39,7 @@ Before running this tutorial, make sure:
 The cleaning pipeline loads the raw datasets, merges them by date, and saves a cleaned dataset for analysis.
 
 ```{python}
+#| eval: false
 from NEO_Nature.cleaning import run_cleaning_pipeline
 
 run_cleaning_pipeline()
@@ -50,6 +59,7 @@ You only need to run this step once unless the raw data changes.
 After the merged dataset has been created, you can run the analysis pipeline.
 
 ```{python}
+#| eval: false
 from NEO_Nature.analysis import run_analysis_pipeline
 
 run_analysis_pipeline()
