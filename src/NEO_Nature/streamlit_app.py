@@ -77,6 +77,43 @@ def main() -> None:
         st.pyplot(run_analysis_pipeline())
         st.caption("There does not appear to be a relationship between asteroid size and disaster count.")
 
+    st.subheader("Natural Disasters and Asteroids Per Year")
+
+    ast = pd.read_csv("neo_data.csv")
+    dia = pd.read_csv("disaster_data.csv")
+
+    ast['date'] = pd.to_datetime(ast['date'])
+    dia['date'] = pd.to_datetime(dia['date'])
+
+    yearly_dia = dia[
+        (dia["date"] >= pd.to_datetime(start_date)) &
+        (dia["date"] <= pd.to_datetime(end_date))
+        ]  
+    
+    yearly_dia["year"] = yearly_dia["date"].dt.year
+    
+    yearly_ast = ast[
+        (ast["estimated_diameter_max_km"] >= min_diameter) &
+        (ast["date"] >= pd.to_datetime(start_date)) &
+        (ast["date"] <= pd.to_datetime(end_date))
+        ]  
+    
+    yearly_ast["year"] = yearly_ast["date"].dt.year
+
+    disasters_per_year = yearly_dia.groupby("year").size().rename("Disasters")
+    asteroids_per_year = (yearly_ast.dropna(subset=["estimated_diameter_max_km"]).groupby("year").size().rename("Asteroids"))
+    
+    bar_df = pd.concat(
+        [disasters_per_year, asteroids_per_year],
+        axis=1
+    ).fillna(0)
+
+
+    st.bar_chart(bar_df)
+    st.caption(
+        "As the amount of natural disasters increases over the years, the number of detected asteroids does not appear to follow the same trend."
+    )
+
     st.subheader("Asteroid Size vs Disaster Count")
 
     scatter_df = (
@@ -95,12 +132,7 @@ def main() -> None:
         y="disaster_count"
     )
     st.caption(
-        "Each point represents a single day. No clear relationship is visible "
-        "between asteroid size and the number of natural disasters."
-    )
-    st.info(
-        "Next steps: customize the sidebar controls, drop in Streamlit charts (st.bar_chart, st.map, etc.), "
-        "and layer in explanations so stakeholders can self-serve results."
+        "Each point represents a single day. No clear relationship is visible between asteroid size and the number of natural disasters."
     )
 
 
