@@ -5,17 +5,20 @@ project:
     - index.qmd
     - Tutorial.qmd
     - Documentation.qmd
+    - WrittenReport.qmd
 
 website:
   title: "NEO-Nature"
   navbar:
     left:
       - href: index.qmd
-        text: Written Report
+        text: Home
       - href: Tutorial.qmd
         text: Tutorial
       - href: Documentation.qmd
         text: Documentation
+      - href: WrittenReport.qmd
+        text: Written Report
   search: true
 
 format:
