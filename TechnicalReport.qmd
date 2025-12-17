@@ -1,0 +1,20 @@
+---
+title: "Technical Report"
+author: "Lindsay McNary, Aubrey Coons-Call"
+---
+
+This document is kept in the repository as the source for the written report. The published site currently renders `index.qmd`, `Tutorial.qmd`, and `Documentation.qmd`.
+
+## Summary
+
+This project served as a valuable exercise in large-scale data retrieval, cleaning, and exploratory statistical analysis. We tested a simple hypothesis about the relationship between Near-Earth Objects (NEOs) and Earth-based natural disasters.
+
+### Research Questions
+
+1. Do increases in asteroid fly-bys correspond with increases in natural disaster frequency?
+2. If a relationship exists, are particular types of natural disasters more impacted than others?
+3. Do NASA-classified “hazardous” NEOs show stronger correlation with natural disasters than non-hazardous ones?
+
+## Conclusion
+
+Across same-day, lagged, and hazardous-only analyses, no meaningful correlation was observed between asteroid characteristics and natural disaster occurrence.

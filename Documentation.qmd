@@ -1,0 +1,51 @@
+---
+title: "Documentation"
+---
+
+```{python, echo=false}
+# Ensure local package imports work without requiring installation.
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path.cwd() / "src"))
+```
+
+## Package
+
+The Python package lives in `src/NEO_Nature/`.
+
+## Core Functions
+
+### Cleaning
+
+`run_cleaning_pipeline()` loads the raw CSVs, merges them by `date`, and writes the merged dataset.
+
+```{python}
+from NEO_Nature.cleaning import run_cleaning_pipeline
+
+# run_cleaning_pipeline()
+```
+
+Inputs:
+
+- `data/neo_data.csv`
+- `data/disaster_data.csv`
+
+Output:
+
+- `data/merged_neo_disaster_data.csv`
+
+### Analysis
+
+`run_analysis_pipeline()` reads the merged dataset and prints summary correlations used in the written report.
+
+```{python}
+from NEO_Nature.analysis import run_analysis_pipeline
+
+# run_analysis_pipeline()
+```
+
+## Notes
+
+- The tutorial is designed to be reproducible without opening notebooks.
+- Exploratory work and plots live in `notebooks/NEO_eda.ipynb`.

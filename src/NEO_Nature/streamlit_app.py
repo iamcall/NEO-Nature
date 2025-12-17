@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import io
+import sys
 from contextlib import redirect_stdout
+from pathlib import Path
 
 import pandas as pd
 import streamlit as st
@@ -13,7 +15,7 @@ from NEO_Nature.cleaning import run_cleaning_pipeline
 
 
 def _sample_data() -> pd.DataFrame:
-    df = pd.read_csv("merged_neo_disaster_data.csv")
+    df = pd.read_csv("data/merged_neo_disaster_data.csv")
     return df
 
 
@@ -79,8 +81,8 @@ def main() -> None:
 
     st.subheader("Natural Disasters and Asteroids Per Year")
 
-    ast = pd.read_csv("neo_data.csv")
-    dia = pd.read_csv("disaster_data.csv")
+    ast = pd.read_csv("data/neo_data.csv")
+    dia = pd.read_csv("data/disaster_data.csv")
 
     ast['date'] = pd.to_datetime(ast['date'])
     dia['date'] = pd.to_datetime(dia['date'])
