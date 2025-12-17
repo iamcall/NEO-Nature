@@ -1,6 +1,18 @@
 # packages
 import pandas as pd
 
+
+def _normalize_columns(df: pd.DataFrame) -> pd.DataFrame:
+    df = df.copy()
+    if "estimated_diameter_max_km" in df.columns and "diameter_max_m" not in df.columns:
+        df["diameter_max_m"] = df["estimated_diameter_max_km"] * 1000
+    if "estimated_diameter_min_km" in df.columns and "diameter_min_m" not in df.columns:
+        df["diameter_min_m"] = df["estimated_diameter_min_km"] * 1000
+    if "is_hazardous" in df.columns and "hazardous" not in df.columns:
+        df["hazardous"] = df["is_hazardous"].astype("boolean")
+    return df
+
+
 def run_cleaning_pipeline():
     print("Running cleaning pipeline...")
 
@@ -15,6 +27,8 @@ def run_cleaning_pipeline():
         on="date",
         how="left"
     )
+
+    merged = _normalize_columns(merged)
     
     # save merged/cleaned file
     merged.to_csv("data/merged_neo_disaster_data.csv", index=False)

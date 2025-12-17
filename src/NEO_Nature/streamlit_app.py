@@ -3,17 +3,28 @@
 from __future__ import annotations
 
 import io
+import sys
 from contextlib import redirect_stdout
+from pathlib import Path
 
 import pandas as pd
 import streamlit as st
 
-from NEO_Nature.analysis import add, run_analysis_pipeline
-from NEO_Nature.cleaning import run_cleaning_pipeling
+# Allow running via `streamlit run src/NEO_Nature/streamlit_app.py` without
+# requiring an installed package.
+SRC_DIR = Path(__file__).resolve().parents[1]
+if str(SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_DIR))
+
+from NEO_Nature.analysis import run_analysis_pipeline
+from NEO_Nature.cleaning import run_cleaning_pipeline
 
 
 def _sample_data() -> pd.DataFrame:
-    df = pd.read_csv("merged_neo_disaster_data.csv")
+    path = Path("data/merged_neo_disaster_data.csv")
+    if not path.exists():
+        return pd.DataFrame()
+    df = pd.read_csv(path)
     return df.head(10)
 
 
@@ -35,11 +46,16 @@ def main() -> None:
 
     with st.sidebar:
         st.header("Controls")
-        dataset_choice = st.selectbox("Dataset", ["Asteroid/ Data", "Upload CSV"])
+        dataset_choice = st.selectbox("Dataset", ["Sample Data", "Upload CSV"])
         show_cleaning = st.checkbox("Preview cleaning pipeline output")
         show_analysis = st.checkbox("Preview analysis pipeline output")
 
     if dataset_choice == "Sample Data":
+        if not Path("data/merged_neo_disaster_data.csv").exists():
+            st.warning(
+                "Missing `data/merged_neo_disaster_data.csv`. "
+                "Run the cleaning pipeline first (or enable the cleaning checkbox)."
+            )
         df = _sample_data()
     else:
         uploaded = st.file_uploader("Upload a CSV file", type="csv")
@@ -55,9 +71,9 @@ def main() -> None:
 
     if show_cleaning:
         st.subheader("Cleaning Pipeline Output")
-        cleaning_output = _run_with_capture(run_cleaning_pipeling)
-        st.code(cleaning_output or "run_cleaning_pipeling() did not emit text.")
-        st.caption("Replace run_cleaning_pipeling with your real preprocessing logic.")
+        cleaning_output = _run_with_capture(run_cleaning_pipeline)
+        st.code(cleaning_output or "run_cleaning_pipeline() did not emit text.")
+        st.caption("Replace run_cleaning_pipeline with your real preprocessing logic.")
 
     if show_analysis:
         st.subheader("Analysis Pipeline Output")
