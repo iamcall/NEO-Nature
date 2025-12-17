@@ -58,23 +58,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "NEO-Nature",
+    "title": "Written Report",
     "section": "",
-    "text": "NEO-Nature is an exploratory data project examining whether Near-Earth Object (NEO) characteristics show any measurable relationship with the frequency of natural disaster events on Earth.\nThis site contains:\n\nA reproducible Tutorial that runs the data cleaning and analysis pipelines\nDocumentation describing the package structure and key functions"
-  },
-  {
-    "objectID": "index.html#overview",
-    "href": "index.html#overview",
-    "title": "NEO-Nature",
-    "section": "",
-    "text": "NEO-Nature is an exploratory data project examining whether Near-Earth Object (NEO) characteristics show any measurable relationship with the frequency of natural disaster events on Earth.\nThis site contains:\n\nA reproducible Tutorial that runs the data cleaning and analysis pipelines\nDocumentation describing the package structure and key functions"
-  },
-  {
-    "objectID": "index.html#repository-layout",
-    "href": "index.html#repository-layout",
-    "title": "NEO-Nature",
-    "section": "Repository Layout",
-    "text": "Repository Layout\n\nsrc/NEO_Nature/: Python package source\ndata/: input datasets and merged output\nnotebooks/: exploratory work"
+    "text": "This project served as a valuable exercise in large-scale data retrieval, cleaning, and exploratory statistical analysis. It gave us the opportunity to engage with real scientific data and test a simple hypothesis about a topic that pushes beyond the boundaries of everyday analytics: the relationship between space-borne events and Earth-bound natural phenomena.\nWe began by surveying the range of available data sources. NASA provides a rich set of accessible APIs, covering everything from the Astronomy Picture of the Day to near-earth objects (NEOs), solar storms, and global climate observations. Because our goal was to identify whether activity in space might influence natural events on Earth, we decided to focus on NEO data alongside global weather and disaster event data. While we did not expect to establish causation, necessarily, any evidence of measurable correlation could motivate further research and potentially improve our predictions for dangerous environmental events. From this motivation, we developed three core research questions:\n\nDo increases in asteroid fly-bys correspond with increases in natural disaster frequency?\nIf a relationship exists, are particular types of natural disasters more impacted than others?\nDo NASA-classified “hazardous” NEOs show stronger correlation with natural disasters than non-hazardous ones?\n\nAfter defining our questions, we pulled data directly from NASA’s APIs and merged the two datasets based on shared dates. The preprocessing stage involved formatting timestamps, filtering out missing observations, and ensuring event counts were aligned per day. Once the dataset was clean, we performed a series of correlation analyses across all major disaster categories: earthquakes, hurricanes, floods, wildfires, volcanic eruptions, and more.\nOur findings were consistent and clear: there is effectively zero correlation between NEO activity and natural disasters on Earth. Even when isolating NASA-designated hazardous asteroids, there was no meaningful statistical relationship with any weather or geological event category. The only near-significance was in volcanic eruptions, but this was due to a very limited number of overlapping observations (only about seven matching dates) which makes any observed correlation unreliable. With a larger sample size, that effect would likely disappear completely.\nThere were also several limitations worth noting. Although NASA maintains a vast catalog of space data, the historical depth of their disaster-related dataset is currently restricted. We were only able to obtain roughly one year of matching weather-event records back to around August of 2024, which makes it difficult to analyze trends across multiple seasons or years. With more historical coverage, particularly for low-frequency events like volcanic eruptions, our ability to test these hypotheses would be much stronger. Additionally, a broader dataset could make it possible to explore other relationships (such as lagged effects) that our single-year dataset could not support very well.\nIn the end, our conclusion is straightforward: asteroid fly-bys, aka NEOs, whether hazardous or routine, show no statistical relationship with the frequency or type of natural disasters occurring on Earth. While this result may not uncover dramatic cosmic-climate interactions, it does help reinforce confidence in current scientific understanding: NEOs are not driving global climate or disaster patterns.\nAnd honestly, that’s probably reassuring news for all of us."
   },
   {
     "objectID": "Documentation.html",
