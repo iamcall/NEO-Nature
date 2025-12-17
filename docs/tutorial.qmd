@@ -1,0 +1,92 @@
+---
+title: "Getting Started"
+jupyter: python3
+---
+
+## Overview
+
+This tutorial demonstrates how to use the `NEO_Nature` package to reproduce the core workflow of the project:
+
+1. Cleaning and merging Near-Earth Object (NEO) and natural disaster data  
+2. Running exploratory analysis to examine potential relationships between asteroid characteristics and disaster occurrence  
+
+All analysis in this project is exploratory and does not claim causation.
+
+---
+
+## Setup
+
+Before running this tutorial, make sure:
+
+- The repository has been cloned locally
+- Required packages (such as `pandas`) are installed
+- The `data/` directory contains:
+  - `neo_data.csv`
+  - `disaster_data.csv`
+
+---
+
+## Running the Cleaning Pipeline
+
+The cleaning pipeline loads the raw datasets, merges them by date, and saves a cleaned dataset for analysis.
+
+```{python}
+from NEO_Nature.cleaning import run_cleaning_pipeline
+
+run_cleaning_pipeline()
+```
+
+This step:
+- Reads the raw NEO and disaster datasets from `data/`
+- Merges them on the `date` column
+- Saves the cleaned dataset to `data/merged_neo_disaster_data.csv`
+
+You only need to run this step once unless the raw data changes.
+
+---
+
+## Running the Analysis Pipeline
+
+After the merged dataset has been created, you can run the analysis pipeline.
+
+```{python}
+from NEO_Nature.analysis import run_analysis_pipeline
+
+run_analysis_pipeline()
+```
+
+This step:
+- Loads the merged dataset
+- Aggregates asteroid size and disaster counts by date
+- Computes correlations for:
+  - Same-day asteroid size vs. disaster count
+  - One-day lagged disaster counts
+  - Hazardous asteroids only
+- Prints summary statistics and a conservative conclusion
+
+The printed results correspond directly to the findings discussed in the final report.
+
+---
+
+## Expected Output
+
+When run successfully, the analysis pipeline will print:
+
+- Correlation values for each comparison
+- A short, plain-language conclusion indicating whether meaningful relationships were detected
+
+These results are intentionally summarized to support reproducibility and clarity.
+
+---
+
+## Notes
+
+- This tutorial prioritizes reproducibility over visualization
+- All exploratory plots and deeper investigation were conducted in `NEO_eda.ipynb`
+- The package structure allows the full workflow to be rerun without interacting with notebooks
+
+---
+
+## Conclusion
+
+By running the cleaning and analysis pipelines shown above, users can fully reproduce the core results of the NEO-Nature project from raw data to final conclusions.
